@@ -1,0 +1,10 @@
+Pro C# with .NET 6,Programming,images\\img1.jpg,400.00,10
+Effective Business Communications,Business,images\\img2.jpg,250.00,10
+JAVA Programming,Programming,images\\img3.jpg,380.00,10
+System Analysis and Design,Design,images\\img4.jpg,550.00,10
+Oracle 11g SQL,Programming,images\\img5.jpg,300.00,10
+PHP Programming with MySQL,Programming,images\\img6.jpg,450.00,10
+Database Principles,Design,images\\img7.jpg,270.00,10
+Fundamentals of Web Development,Programming,images\\img8.jpg,550.00,10
+Head First JAVA,Programming,images\\img9.jpg,500.00,10
+Basics of Entrepreneurship,Business,images\\img10.jpg,320.00,10

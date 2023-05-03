@@ -1,0 +1,93 @@
+header
+{
+    text-align: center;
+}
+
+.userInfoDiv
+{
+    /*div properties*/
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 25px;
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 20px;
+
+    /*center the div*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+input
+{
+    padding: 5px; 
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    resize: vertical;
+    width: 50%;
+}
+
+body
+{
+    background-color: #2f3035;
+    background-image: url(images/IMG_20220512_180745.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btnLog
+{
+    color: white;
+    background-color: maroon;
+}
+
+.adminlink
+{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 25px;
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    display: block;
+    margin-left: 90%;
+    width: 10%;
+
+}
+.adminlink a{
+    color: white;
+}
+.loglink
+{
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+.home
+{
+    /*background-image: url(images/IMG_20220512_180745.jpg);*/
+    background-color: mediumaquamarine;
+}
+
+h1
+{
+    text-align: center;
+}
+
+.name{
+    font-size: 20px;
+    color:var(--black);
+    padding:5px 0;
+ }
+
+

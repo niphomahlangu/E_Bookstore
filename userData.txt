@@ -1,0 +1,5 @@
+Ntokozo,Mahlangu,4512,ntoks@gmail.com,password123
+Mandisa,Majola,4513,mj@gmail.com,5fr5rrgyjuie7563626a96cea7f4b4085c124
+Katlego,Seleka,4514,kat@gmail.com,29ef52e7563626a96cea7f4b4085c124
+Lerato,Lapelo,4515,lovelerato@gmail.com,d4fnek04fa96cea7f4b4085c124
+Dipatse,Tsafelo,4516,music@gmail.com,29ef52e7563626a96cea7f4b4085c124
