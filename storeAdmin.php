@@ -4,7 +4,7 @@
     
     $row = $output = $results = $book_id = null;
     $bookTitle=$category=$image=$price=$qnty=$img=$title=$cost=$delete=$rowid=$delResult=$cmdResult = null;
-    
+    $update = false;
     
     //log user out
     if(isset($_POST['btnLogout'])){
@@ -35,9 +35,46 @@
             }
     }
     
+    //row to be edited
+    if(isset($_GET['edit'])){
+        
 
-    $qry = "SELECT bookid, booktitle, price FROM tblbooks WHERE image = 'images/coming-soon.png' ";
-    $results = mysqli_query($conn,$qry);
+        $update = true;
+        //get row id
+        $book_id = $_GET['edit'];
+
+        //read data of the selected row
+        $sql = "SELECT booktitle, category, price FROM tblbooks WHERE bookid=$book_id";
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_array($result);
+
+        if($row){
+            $bookTitle = $row["booktitle"];
+            $category = $row["category"];
+            $price = $row["price"];
+        }else{
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+    }
+
+    //update the record
+    if(isset($_POST['btn_update'])){
+        
+        $book_id = $_POST['bookid'];
+        $bookTitle = $_POST['booktitle'];
+        $category = $_POST['category'];
+        $price = $_POST['price'];
+
+        $sql = "UPDATE tblbooks SET booktitle='$bookTitle', category='$category', price='$price'  WHERE bookid=$book_id";
+        $result = mysqli_query($conn,$sql);
+        if($result){
+            echo "Updated successfully";
+            /*echo '<script>alert("Item updated successfully.")</script>';
+            echo '<script>window.location="storeAdmin.php"</script>';*/
+        }else{
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+    }
         
 ?>
 <!DOCTYPE html>
@@ -115,10 +152,14 @@
         <div class="userInfoDiv">
             <?php echo $output?><br><br>
             <input type="hidden" name="bookid"  >
-            <input type="text" name="booktitle" placeholder="Enter book title" ><br><br>
-            <input type="text" name="category" placeholder="Enter book category"><br><br>
-            <input type="text" name="price" placeholder="Enter book price" ><br><br>
+            <input type="text" name="booktitle" placeholder="Enter book title" value="<?php echo $bookTitle; ?>" ><br><br>
+            <input type="text" name="category" placeholder="Enter book category" value="<?php echo $category; ?>"><br><br>
+            <input type="text" name="price" placeholder="Enter book price" value="<?php echo $price; ?>" ><br><br>
+            <?php if($update == true): ?>
+                <input type="submit" name="btn_update" value="Update">
+                <?php else: ?>
             <input type="submit" name="btn_addBook" value="Add">
+            <?php endif ?>
         </div>
         </form>
         <div style="background-color: rgba(0, 0, 0, 0.75);">
@@ -133,6 +174,9 @@
                 </tr>
             </thead>
     <?php
+    $qry = "SELECT bookid, booktitle, price FROM tblbooks WHERE image = 'images/coming-soon.png' ";
+    $results = mysqli_query($conn,$qry);
+
     if(mysqli_num_rows($results) > 0){
         while ($row = mysqli_fetch_array($results)) {
             $book_id = $row['bookid'];
@@ -142,10 +186,10 @@
                 <td><?php echo $title; ?></td>
                 <td><?php echo $cost; ?></td>
                 <td>
-                    <a class="btn-edit" href="editBook.php?id=<?php echo $book_id; ?>">Edit</a>
+                    <a class="btn-edit" href="storeAdmin.php?edit=<?php echo $book_id; ?>">Edit</a>
                 </td>
                 <td>
-                <a class="btn-delete" href="">Delete</a>
+                <a class="btn-delete" href="storeAdmin.php?del=<?php echo $book_id; ?>">Delete</a>
                 </td>
             </tr>
     <?php    }
