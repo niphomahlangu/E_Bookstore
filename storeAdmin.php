@@ -3,7 +3,7 @@
     include "dbConn.php";
     
     $row = $output = $results = $book_id = null;
-    $bookTitle=$category=$image=$price=$qnty=$img=$title=$cost=$delete=$rowid=$delResult=$cmdResult = null;
+    $bookTitle=$category=$image=$price=$qnty=$img=$cost=$delete=$rowid=$delResult=$cmdResult = null;
     $update = false;
     
     //log user out
@@ -68,9 +68,7 @@
         $sql = "UPDATE tblbooks SET booktitle='$bookTitle', category='$category', price='$price'  WHERE bookid=$book_id";
         $result = mysqli_query($conn,$sql);
         if($result){
-            echo "Updated successfully";
-            /*echo '<script>alert("Item updated successfully.")</script>';
-            echo '<script>window.location="storeAdmin.php"</script>';*/
+            header("location: storeAdmin.php");
         }else{
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
