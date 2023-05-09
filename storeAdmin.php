@@ -73,6 +73,18 @@
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
     }
+
+    //delete a row
+    if(isset($_GET['del'])){
+        $book_id= $_GET['del'];
+        $sql = "DELETE FROM tblbooks WHERE bookid=$book_id";
+        $result = mysqli_query($conn,$sql);
+        if($result){
+            header("location: storeAdmin.php");
+        }else{
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+    }
         
 ?>
 <!DOCTYPE html>
